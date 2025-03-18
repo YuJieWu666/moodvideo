@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>心情化妆镜</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>心情化妆镜</h1>
+
+      <div class="camera-container">
+        <video id="camera" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <div id="capture-overlay"></div>
+      </div>
+
+      <div class="mood-selector">
+        <h2>选择你的心情</h2>
+        <div class="mood-buttons">
+          <button class="mood-btn" data-mood="happy">开心😊</button>
+          <button class="mood-btn" data-mood="sad">伤心😢</button>
+          <button class="mood-btn" data-mood="angry">生气😠</button>
+          <button class="mood-btn" data-mood="surprised">惊讶😲</button>
+          <button class="mood-btn" data-mood="cool">酷炫😎</button>
+          <button class="mood-btn" data-mood="love">浪漫❤️</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="capture-btn">拍照</button>
+        <button id="download-btn" disabled>保存照片</button>
+        <button id="reset-btn">重置</button>
+      </div>
+
+      <div class="result-container" style="display: none">
+        <h2>你的心情照片</h2>
+        <img id="result-image" src="" alt="处理后的照片" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
