@@ -13,6 +13,7 @@
       <div class="camera-container">
         <video id="camera" autoplay playsinline></video>
         <canvas id="canvas"></canvas>
+        <canvas id="display-canvas"></canvas>
         <div id="capture-overlay"></div>
       </div>
 
@@ -25,6 +26,18 @@
           <button class="mood-btn" data-mood="surprised">惊讶😲</button>
           <button class="mood-btn" data-mood="cool">酷炫😎</button>
           <button class="mood-btn" data-mood="love">浪漫❤️</button>
+        </div>
+      </div>
+
+      <div class="distortion-selector">
+        <h2>选择变形效果</h2>
+        <div class="distortion-buttons">
+          <button class="distortion-btn" data-effect="none">无变形</button>
+          <button class="distortion-btn" data-effect="bulge">凸起😜</button>
+          <button class="distortion-btn" data-effect="pinch">凹陷🤪</button>
+          <button class="distortion-btn" data-effect="wave">波浪🌊</button>
+          <button class="distortion-btn" data-effect="fisheye">鱼眼👁️</button>
+          <button class="distortion-btn" data-effect="twist">扭曲🌀</button>
         </div>
       </div>
 

@@ -35,6 +35,7 @@ h2 {
   color: #666;
 }
 
+/* 改进的摄像头容器 */
 .camera-container {
   position: relative;
   width: 100%;
@@ -44,19 +45,41 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #000;
 }
 
-#camera,
+#camera {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+}
+
 #canvas {
+  display: none;
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  z-index: 2;
 }
 
-#canvas {
-  display: none;
+#display-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 3;
 }
 
 #capture-overlay {
@@ -68,13 +91,15 @@ h2 {
   border-radius: 10px;
   pointer-events: none;
   transition: all 0.3s ease;
+  z-index: 4;
 }
 
-.mood-selector {
+/* 心情和变形选择器 */
+.mood-selector, .distortion-selector {
   margin-bottom: 25px;
 }
 
-.mood-buttons {
+.mood-buttons, .distortion-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -82,7 +107,7 @@ h2 {
   margin-top: 15px;
 }
 
-.mood-btn {
+.mood-btn, .distortion-btn {
   background-color: #fff;
   color: #333;
   border: 2px solid #ddd;
@@ -93,12 +118,12 @@ h2 {
   transition: all 0.3s ease;
 }
 
-.mood-btn:hover {
+.mood-btn:hover, .distortion-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.mood-btn.active {
+.mood-btn.active, .distortion-btn.active {
   border-color: #ff5e94;
   background-color: #ff5e94;
   color: white;
@@ -186,6 +211,7 @@ button:disabled {
 
 .result-container {
   margin-top: 30px;
+  position: relative;
 }
 
 #result-image {
@@ -200,14 +226,22 @@ button:disabled {
     height: 360px;
   }
 
-  .mood-buttons {
+  .mood-buttons, .distortion-buttons {
     gap: 10px;
   }
 
-  .mood-btn {
+  .mood-btn, .distortion-btn {
     padding: 8px 15px;
     font-size: 14px;
   }
+
+  button {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 0 5px 10px;
+  }
+}
+
 
   button {
     padding: 10px 20px;
