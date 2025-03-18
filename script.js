@@ -770,11 +770,16 @@ document.addEventListener("DOMContentLoaded", () => {
     tempCtx.drawImage(displayCanvas, 0, 0);
 
     // 添加滤镜效果的半透明叠加
-    tempCtx.fillStyle = moodElements[currentMood].color;
-    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    if (currentMood && moodElements[currentMood]) {
+      tempCtx.fillStyle = moodElements[currentMood].color;
+      tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    }
 
     // 将最终结果设置为图像源
     resultImage.src = tempCanvas.toDataURL("image/png");
+
+    // 确保结果图像已经可见
+    resultImage.style.display = "block";
 
     // 将装饰层添加到结果容器中
     const decorationContainer = document.createElement("div");
@@ -824,6 +829,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 添加拍照音效
     playSound("camera");
+
+    // 滚动到结果区域
+    resultContainer.scrollIntoView({ behavior: "smooth" });
   });
 
   // 下载按钮点击事件
@@ -838,6 +846,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 加载图像
     const img = new Image();
+    img.crossOrigin = "Anonymous"; // 添加跨域支持
+
     img.onload = function () {
       // 绘制图像
       finalCtx.drawImage(img, 0, 0);
@@ -845,8 +855,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // 创建下载链接
       const link = document.createElement("a");
       link.download = `我的${moodElements[currentMood].emoji}心情照片.png`;
-      link.href = finalCanvas.toDataURL("image/png");
+
+      // 使用toDataURL直接从resultImage获取数据
+      link.href = resultImage.src;
+
+      // 触发点击事件
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
 
       // 添加下载音效
       playSound("download");

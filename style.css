@@ -65,6 +65,7 @@ h2 {
   object-fit: cover;
   border-radius: 15px;
   z-index: 1;
+  display: none;
 }
 
 #canvas {
