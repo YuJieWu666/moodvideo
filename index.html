@@ -3,41 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>心情化妆镜</title>
+    <title>心情魔法镜</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>心情化妆镜</h1>
+      <h1>心情魔法镜</h1>
 
       <div class="camera-container">
         <video id="camera" autoplay playsinline></video>
         <canvas id="canvas"></canvas>
         <canvas id="display-canvas"></canvas>
         <div id="capture-overlay"></div>
+        <div class="sticker-container" id="sticker-container"></div>
       </div>
 
       <div class="mood-selector">
         <h2>选择你的心情</h2>
         <div class="mood-buttons">
-          <button class="mood-btn" data-mood="happy">开心😊</button>
-          <button class="mood-btn" data-mood="sad">伤心😢</button>
-          <button class="mood-btn" data-mood="angry">生气😠</button>
-          <button class="mood-btn" data-mood="surprised">惊讶😲</button>
-          <button class="mood-btn" data-mood="cool">酷炫😎</button>
-          <button class="mood-btn" data-mood="love">浪漫❤️</button>
+          <button
+            class="mood-btn"
+            data-mood="happy"
+            title="开心 - 阳光凸起效果"
+          >
+            开心😊
+          </button>
+          <button class="mood-btn" data-mood="sad" title="伤心 - 水滴波浪效果">
+            伤心😢
+          </button>
+          <button
+            class="mood-btn"
+            data-mood="angry"
+            title="生气 - 扭曲旋转效果"
+          >
+            生气😠
+          </button>
+          <button
+            class="mood-btn"
+            data-mood="surprised"
+            title="惊讶 - 鱼眼夸张效果"
+          >
+            惊讶😲
+          </button>
+          <button class="mood-btn" data-mood="cool" title="酷炫 - 动感分身效果">
+            酷炫😎
+          </button>
+          <button class="mood-btn" data-mood="love" title="浪漫 - 甜蜜粉红效果">
+            浪漫❤️
+          </button>
         </div>
       </div>
 
-      <div class="distortion-selector">
-        <h2>选择变形效果</h2>
-        <div class="distortion-buttons">
-          <button class="distortion-btn" data-effect="none">无变形</button>
-          <button class="distortion-btn" data-effect="bulge">凸起😜</button>
-          <button class="distortion-btn" data-effect="pinch">凹陷🤪</button>
-          <button class="distortion-btn" data-effect="wave">波浪🌊</button>
-          <button class="distortion-btn" data-effect="fisheye">鱼眼👁️</button>
-          <button class="distortion-btn" data-effect="twist">扭曲🌀</button>
+      <div class="fun-features">
+        <h2>趣味功能</h2>
+        <div class="feature-buttons">
+          <button id="sticker-btn" title="添加有趣贴纸">贴纸🎭</button>
+          <button id="voice-effect-btn" title="添加语音变声效果">变声🎤</button>
+          <button id="animate-btn" title="动态特效">动效✨</button>
+          <button id="beautify-btn" title="美颜效果">美颜👧</button>
         </div>
       </div>
 
@@ -51,6 +74,21 @@
         <h2>你的心情照片</h2>
         <img id="result-image" src="" alt="处理后的照片" />
       </div>
+    </div>
+
+    <div class="sticker-panel" style="display: none">
+      <h3>选择贴纸</h3>
+      <div class="sticker-options">
+        <span class="sticker" data-sticker="👑">👑</span>
+        <span class="sticker" data-sticker="🌈">🌈</span>
+        <span class="sticker" data-sticker="🎭">🎭</span>
+        <span class="sticker" data-sticker="🦄">🦄</span>
+        <span class="sticker" data-sticker="🎩">🎩</span>
+        <span class="sticker" data-sticker="👓">👓</span>
+        <span class="sticker" data-sticker="🌟">🌟</span>
+        <span class="sticker" data-sticker="🎀">🎀</span>
+      </div>
+      <button id="close-sticker-panel">关闭</button>
     </div>
 
     <script src="script.js"></script>
